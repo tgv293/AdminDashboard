@@ -28,9 +28,9 @@ const UserProfile = () => {
         const userData = await response.json();
 
         // Chuyển đổi định dạng chuỗi thành ngày
-        const birthdayParts = userData.Birthday.split("/");
-        const formattedBirthday = `${birthdayParts[2]}-${birthdayParts[1]}-${birthdayParts[0]}`;
-        userData.Birthday = formattedBirthday;
+        const birthdateParts = userData.Birthdate.split("/");
+        const formattedBirthdate = `${birthdateParts[2]}-${birthdateParts[1]}-${birthdateParts[0]}`;
+        userData.Birthdate = formattedBirthdate;
 
         setUser(userData);
       } catch (error) {
@@ -42,8 +42,8 @@ const UserProfile = () => {
   }, [id]);
 
   const handleSubmit = async (values) => {
-    const formattedBirthday = values.Birthday.split("-").reverse().join("/");
-    values.Birthday = formattedBirthday;
+    const formattedBirthdate = values.Birthdate.split("-").reverse().join("/");
+    values.Birthdate = formattedBirthdate;
     try {
       await fetch(`https://64a4e0ad00c3559aa9bec3c3.mockapi.io/Users/${id}`, {
         method: "PUT",
@@ -234,18 +234,18 @@ const UserProfile = () => {
               </FormControl>
 
               <FormControl fullWidth>
-                <FormLabel htmlFor="Birthday">Ngày sinh</FormLabel>
+                <FormLabel htmlFor="Birthdate">Ngày sinh</FormLabel>
                 <TextField
-                  id="Birthday"
+                  id="Birthdate"
                   type="date"
                   onBlur={handleBlur}
                   onChange={(e) => {
                     handleChange(e);
                     handleFormChange(); // Gọi hàm handleFormChange() khi có sự thay đổi trong form
                   }}
-                  value={values.Birthday}
-                  name="Birthday"
-                  error={!!touched.Birthday && !!errors.Birthday}
+                  value={values.Birthdate}
+                  name="Birthdate"
+                  error={!!touched.Birthdate && !!errors.Birthdate}
                   variant="standard"
                   className="custom-date-field"
                 />

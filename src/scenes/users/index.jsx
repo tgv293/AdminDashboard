@@ -52,12 +52,12 @@ const Users = () => {
           Email,
           Address,
           phoneNumber,
-          Birthday,
+          Birthdate,
           Role,
         } = user;
 
-        const [day, month, year] = Birthday.split("/");
-        const formattedBirthday = `${day}/${month}/${year}`;
+        const [day, month, year] = Birthdate.split("/");
+        const formattedBirthdate = `${day}/${month}/${year}`;
 
         return {
           id,
@@ -66,7 +66,7 @@ const Users = () => {
           Email,
           Address,
           phoneNumber,
-          Birthday: formattedBirthday,
+          Birthdate: formattedBirthdate,
           Role,
         };
       });
@@ -144,7 +144,7 @@ const Users = () => {
       sortable: false,
     },
     {
-      field: "Birthday",
+      field: "Birthdate",
       headerName: "Ngày sinh",
       flex: 0.8,
       type: "date",

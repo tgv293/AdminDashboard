@@ -343,18 +343,12 @@ const UserProfile = () => {
 };
 
 // Khai báo các giá trị và nhãn cho trường Role
-const valueOptions = ["admin", "admin", "user", "user"];
+const valueOptions = ["Admin", "User"];
 
-const uniqueValueOptions = [...new Set(valueOptions)];
-
-const Roles = uniqueValueOptions.map((value) => {
-  const label = value.toLowerCase() === "admin" ? "Admin" : "User";
-
-  return {
-    value: value,
-    label: label,
-  };
-});
+const Roles = valueOptions.map((value) => ({
+  value,
+  label: value === "Admin" ? "Admin" : "User",
+}));
 
 // Biểu thức chính quy để kiểm tra định dạng số điện thoại
 const phoneRegExp =

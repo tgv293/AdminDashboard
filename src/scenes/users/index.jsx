@@ -66,7 +66,7 @@ const Users = () => {
           Email,
           Address,
           phoneNumber,
-          Birthdate: formattedBirthdate,
+          Birthdate: Birthdate !== "" ? formattedBirthdate : null,
           Role,
         };
       });
